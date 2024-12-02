@@ -16,6 +16,11 @@ pragma solidity^0.8.0;
 
     Tier[] public tiers;
 
+    modifier onlyOwner(){
+        require(msg.sender == owner, "Not the owner");
+        _;  
+    }
+
 //Runs once the smart contract is deployed
     constructor (
     string memory _name,
@@ -37,8 +42,21 @@ pragma solidity^0.8.0;
 
     }
 
-    function withdraw() public{
-        require(msg.sender == owner, "Only the owner can withdraw.");
+    function addTier(
+        string memory _name,
+        uint256 _amount
+    ) public onlyOwner{
+        require(_amount > 0, "Amount must be greater than 0.");
+        tiers.push(Tier(_name, _amount, 0));
+    }
+
+    function removeTier(uint256 _index) public onlyOwner {
+        require(_index < tiers.length, "Tier does not exist");
+        tiers[_index] = tiers[tiers.length -1];
+        tiers.pop();
+    }
+
+    function withdraw() public onlyOwner{
         require(address(this).balance >= goal,"Goal has not been reached");
 
         uint256 balance = address(this).balance;
