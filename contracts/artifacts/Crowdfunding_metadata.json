@@ -32,6 +32,24 @@
 				"type": "constructor"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_name",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "addTier",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "deadline",
 				"outputs": [
@@ -58,7 +76,13 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_tierIndex",
+						"type": "uint256"
+					}
+				],
 				"name": "fund",
 				"outputs": [],
 				"stateMutability": "payable",
@@ -114,6 +138,19 @@
 					}
 				],
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
+					}
+				],
+				"name": "removeTier",
+				"outputs": [],
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -181,11 +218,11 @@
 	},
 	"sources": {
 		"contracts/Crowdfunding.sol": {
-			"keccak256": "0xfb2d3ab45c3f662aa46b17e81b7230d43f12483d2f7176fe6e6324286801953e",
+			"keccak256": "0x88681f029228a31371a85d8aa791189350762fdf48987b8bde8e6645901cbec2",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://5b84ea76623492185834147f4e5f4b6c25f835967f90f4e5089a616d963bb136",
-				"dweb:/ipfs/QmV7EVHkazNLpCRnWmQY4SELt9cKEjKvwiGsZF6cx7gSqH"
+				"bzz-raw://a05340f4a9b0589a7ba9e93d842ce01482f671075581126f8a67d9903a2748cb",
+				"dweb:/ipfs/QmVBuruKee9fSGy2P29cP28Hc2aNRtHDVXkoQEZHsZ58dF"
 			]
 		}
 	},

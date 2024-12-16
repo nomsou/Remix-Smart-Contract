@@ -35,9 +35,24 @@ pragma solidity^0.8.0;
         owner = msg.sender;
     }
 
-    function fund()public payable{
-        require(msg.value > 0, "Must fund amount greater than 0.");
+
+    // Code to fund any amount
+    // function fund()public payable{
+    //     require(msg.value > 0, "Must fund amount greater than 0.");
+    //     require(block.timestamp < deadline, "Campaign has ended.");
+
+
+    // }
+
+    //Code to fund tiers
+    function fund(uint256 _tierIndex)public payable{
         require(block.timestamp < deadline, "Campaign has ended.");
+        require(_tierIndex < tiers.length, "Invalid tier");
+        require(msg.value == tiers[_tierIndex].amount, "Incorrect amount");
+
+
+        //Code to increase value of backers
+        tiers[_tierIndex].backers++;
 
 
     }
